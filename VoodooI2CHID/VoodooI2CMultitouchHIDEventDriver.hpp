@@ -143,6 +143,16 @@ class EXPORT VoodooI2CMultitouchHIDEventDriver : public IOHIDEventService {
 
     bool handleStart(IOService* provider) override;
 
+    /* Parses physical max HID element.
+     * @element The element to parse.
+     *
+     * This function factors reported dimensions with units and exponent.
+     *
+     * @return Physical max dimension in 0.01 mm units.
+     */
+
+    static UInt32 parseElementPhysicalMax(IOHIDElement* element);
+
     /* Parses a digitiser usage page element
      * @element The element to parse
      *
